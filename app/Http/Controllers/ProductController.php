@@ -35,6 +35,7 @@ class ProductController extends Controller
         $produit->price = $request->price;
 
         $produit->save();
+        flashy()->success("L'evenement a été creer avec succés");
 
         return redirect()->route('route-all-liste');
 
@@ -70,12 +71,16 @@ class ProductController extends Controller
         $produit->price = $request->price;
 
         $produit->save();
+        flashy()->success("L'evenement a été modifié avec succès");
+
 
         return redirect()->route('route-all-liste');
+        
     }
 
     public function deleteProduit($id){
         Produit::destroy($id);
+        flashy()->success("L'evenement a été supprimé avec succès");
         return redirect()->route('route-all-liste');
     }
 }
